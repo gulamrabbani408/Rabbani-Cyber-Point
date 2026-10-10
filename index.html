@@ -1,9 +1,619 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>My first web page</title>
-    </head>
-    <body>
-        <h1>h</h1>
-    </body>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rabbani Cyber Point - Online Forms, Aadhaar, PAN, Scholarship, Government Jobs, Results, Printing and Digital Services.">
+<title>Rabbani Cyber Point | Online Services</title>
+
+<style>
+:root {
+  --primary: #075ee8;
+  --dark: #071a36;
+  --green: #16a36a;
+  --light: #f2f7ff;
+  --text: #17243b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+button, input { font: inherit; }
+.topbar {
+  background: #06152e;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 15px #071a3610;
+}
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg,#075ee8,#16b9b0);
+  color: white;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.brand h2 { font-size: 19px; color: var(--dark); }
+.brand small { color: #64748b; font-size: 11px; }
+nav { display: flex; flex-wrap: wrap; gap: 17px; font-size: 14px; }
+nav a:hover { color: var(--primary); }
+.hero {
+  background: linear-gradient(125deg,#06152e,#075ee8 70%,#13a9bb);
+  color: white;
+  padding: 75px 20px;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  align-items: center;
+  gap: 35px;
+}
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #ffffff65;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.hero h1 { font-size: clamp(32px,5vw,52px); line-height: 1.15; }
+.hero h1 span { color: #8cf5dc; }
+.hero p { margin: 20px 0; color: #e3edff; max-width: 580px; }
+.btn {
+  display: inline-block;
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+.btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn-white { background: white; color: var(--primary); }
+.btn-green { background: var(--green); }
+.hero-card {
+  background: #ffffff15;
+  border: 1px solid #ffffff40;
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+.hero-card h3 { font-size: 23px; margin-bottom: 12px; }
+.hero-card p { margin: 8px 0; }
+.stats {
+  max-width: 1050px;
+  margin: -25px auto 0;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  position: relative;
+}
+.stat {
+  background: white;
+  text-align: center;
+  padding: 18px 10px;
+  border-radius: 14px;
+  box-shadow: 0 6px 25px #10285012;
+}
+.stat strong { display: block; font-size: 19px; color: var(--primary); }
+.stat span { font-size: 13px; color: #64748b; }
+section { padding: 60px 20px; }
+.container { max-width: 1100px; margin: auto; }
+.section-head { text-align: center; margin-bottom: 28px; }
+.section-head h2 { font-size: 30px; color: var(--dark); }
+.section-head p { color: #64748b; margin-top: 7px; }
+.search {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  display: flex;
+  gap: 10px;
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #dbe5f3;
+  background: white;
+  padding: 13px 15px;
+  border-radius: 10px;
+  outline-color: var(--primary);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+.service {
+  background: white;
+  border: 1px solid #e3eaf5;
+  border-radius: 15px;
+  padding: 22px;
+  transition: .2s;
+}
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #10285012;
+  border-color: #b6d0ff;
+}
+.service-icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  background: #eaf2ff;
+  border-radius: 13px;
+  font-size: 25px;
+  margin-bottom: 13px;
+}
+.service h3 { font-size: 18px; margin-bottom: 7px; }
+.service p { color: #64748b; font-size: 13px; min-height: 42px; }
+.service .btn { margin-top: 15px; font-size: 13px; padding: 9px 13px; }
+.notice {
+  background: #fff8e7;
+  border: 1px solid #f5d99a;
+  border-radius: 12px;
+  padding: 15px;
+  color: #76500b;
+  font-size: 13px;
+  margin-top: 25px;
+}
+.updates { background: white; }
+.update-list { max-width: 800px; margin: auto; display: grid; gap: 14px; }
+.update {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border: 1px solid #e4eaf3;
+  padding: 17px;
+  border-radius: 12px;
+}
+.update-icon {
+  background: #e9f7ef;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+.update p { font-size: 13px; color: #64748b; margin-top: 4px; }
+.update a { color: var(--primary); font-size: 13px; font-weight: bold; }
+.about-box {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid #e4eaf3;
+}
+.about-box p { color: #64748b; margin-top: 12px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 25px;
+}
+.contact-panel {
+  background: #071a36;
+  color: white;
+  border-radius: 18px;
+  padding: 27px;
+}
+.contact-panel p { color: #d0dcf0; margin: 12px 0; }
+.contact-form {
+  background: white;
+  border: 1px solid #e3eaf5;
+  border-radius: 18px;
+  padding: 25px;
+}
+.contact-form label { display: block; font-size: 14px; margin: 12px 0 5px; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  border: 1px solid #d6dfed;
+  padding: 12px;
+  border-radius: 8px;
+  outline-color: var(--primary);
+}
+.contact-form textarea { min-height: 95px; resize: vertical; }
+footer {
+  background: #06152e;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+footer p { font-size: 13px; color: #c7d3e7; margin-top: 7px; }
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  background: #16a34a;
+  color: white;
+  border-radius: 50px;
+  padding: 13px 18px;
+  font-weight: bold;
+  box-shadow: 0 5px 20px #0002;
+}
+.empty { display: none; text-align: center; padding: 25px; color: #64748b; }
+@media(max-width:800px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero { padding: 50px 18px; }
+  nav { gap: 10px; font-size: 12px; }
+  .nav { flex-wrap: wrap; }
+  .grid { grid-template-columns: repeat(2,1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:520px) {
+  .grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .stat { padding: 12px; }
+  .brand h2 { font-size: 16px; }
+  nav { width: 100%; justify-content: space-between; }
+  section { padding: 43px 15px; }
+  .search { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  आपका अपना डिजिटल सेवा केंद्र | Rabbani Cyber Point
+</div>
+
+<header>
+  <div class="nav">
+    <a href="#home" class="brand">
+      <div class="logo">R</div>
+      <div>
+        <h2>Rabbani Cyber Point</h2>
+        <small>ONLINE • DIGITAL • SERVICES</small>
+      </div>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#updates">Updates</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="tag">WELCOME TO OUR DIGITAL CENTER</span>
+      <h1>आपका अपना<br><span>Rabbani Cyber Point</span></h1>
+      <p>
+        सरकारी फॉर्म, नौकरी, एडमिट कार्ड, रिजल्ट, स्कॉलरशिप
+        और डिजिटल सेवाओं के लिए एक ही जगह।
+        आसान सेवा, सही जानकारी और बेहतर अनुभव।
+      </p>
+      <a class="btn btn-white" href="#services">सभी सेवाएँ देखें →</a>
+      <a class="btn btn-green" href="#contact">संपर्क करें</a>
+    </div>
+    <div class="hero-card">
+      <h3>डिजिटल सेवा केंद्र</h3>
+      <p>✓ Online Form सहायता</p>
+      <p>✓ सरकारी नौकरी एवं रिजल्ट लिंक</p>
+      <p>✓ PAN और आधार के आधिकारिक पोर्टल</p>
+      <p>✓ स्कॉलरशिप एवं एडमिट कार्ड</p>
+      <p>✓ प्रिंटिंग, स्कैनिंग एवं टाइपिंग</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>Online</strong><span>डिजिटल सेवाएँ</span></div>
+  <div class="stat"><strong>Easy Access</strong><span>एक जगह सभी लिंक</span></div>
+  <div class="stat"><strong>Customer First</strong><span>ग्राहक सहायता</span></div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>हमारी ऑनलाइन सेवाएँ</h2>
+      <p>अपनी जरूरत की सेवा खोजें और आधिकारिक पोर्टल खोलें।</p>
+    </div>
+
+    <div class="search">
+      <input id="serviceSearch" type="search"
+        placeholder="सेवा खोजें... जैसे PAN, Job, Result"
+        aria-label="सेवा खोजें">
+      <button class="btn" onclick="searchServices()">Search</button>
+    </div>
+
+    <div class="grid" id="serviceGrid">
+      <article class="service" data-key="aadhaar आधार uidai update">
+        <div class="service-icon">🪪</div>
+        <h3>Aadhaar Services</h3>
+        <p>आधार की जानकारी और उपलब्ध ऑनलाइन सेवाएँ।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://uidai.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="pan card पैन कार्ड">
+        <div class="service-icon">💳</div>
+        <h3>PAN Card</h3>
+        <p>PAN कार्ड से जुड़ी सेवाओं के लिए आधिकारिक पोर्टल।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="government jobs sarkari naukri सरकारी नौकरी भर्ती">
+        <div class="service-icon">💼</div>
+        <h3>Government Jobs</h3>
+        <p>सरकारी भर्ती की जानकारी के लिए आधिकारिक वेबसाइट।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.ncs.gov.in/">Find Jobs ↗</a>
+      </article>
+
+      <article class="service" data-key="scholarship स्कॉलरशिप छात्रवृत्ति">
+        <div class="service-icon">🎓</div>
+        <h3>Scholarship</h3>
+        <p>छात्रवृत्ति योजनाओं और आवेदन की जानकारी।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://scholarships.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="admit card प्रवेश पत्र exam परीक्षा">
+        <div class="service-icon">🎫</div>
+        <h3>Admit Card</h3>
+        <p>परीक्षा के एडमिट कार्ड के लिए संबंधित बोर्ड का पोर्टल खोलें।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://jeemain.nta.nic.in/">NTA JEE ↗</a>
+      </article>
+
+      <article class="service" data-key="result रिजल्ट परीक्षा परिणाम">
+        <div class="service-icon">📊</div>
+        <h3>Exam Results</h3>
+        <p>परीक्षा परिणाम संबंधित आधिकारिक वेबसाइट पर देखें।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://results.nic.in/">Check Results ↗</a>
+      </article>
+
+      <article class="service" data-key="bihar बिहार government सरकारी service">
+        <div class="service-icon">🏛️</div>
+        <h3>Bihar Government</h3>
+        <p>बिहार सरकार की सेवाओं और विभागों की जानकारी।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://state.bihar.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="passport पासपोर्ट">
+        <div class="service-icon">🌐</div>
+        <h3>Passport Services</h3>
+        <p>पासपोर्ट आवेदन और अपॉइंटमेंट की आधिकारिक सेवा।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.passportindia.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="voter id वोटर मतदाता">
+        <div class="service-icon">🗳️</div>
+        <h3>Voter ID</h3>
+        <p>मतदाता पहचान पत्र से संबंधित सेवाएँ।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://voters.eci.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="driving licence dl वाहन परिवहन">
+        <div class="service-icon">🚘</div>
+        <h3>Driving Licence</h3>
+        <p>ड्राइविंग लाइसेंस और परिवहन सेवाएँ।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://parivahan.gov.in/">Open Portal ↗</a>
+      </article>
+
+      <article class="service" data-key="income certificate caste residence आय जाति निवास प्रमाणपत्र">
+        <div class="service-icon">📑</div>
+        <h3>Certificates</h3>
+        <p>आय, जाति और निवास प्रमाणपत्र की सरकारी सेवाएँ।</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://serviceonline.bihar.gov.in/">Bihar RTPS ↗</a>
+      </article>
+
+      <article class="service" data-key="print scan typing प्रिंट स्कैन फोटो">
+        <div class="service-icon">🖨️</div>
+        <h3>Print, Scan & Typing</h3>
+        <p>प्रिंटिंग, स्कैनिंग, फोटो और डॉक्यूमेंट टाइपिंग के लिए संपर्क करें।</p>
+        <a class="btn" href="#contact">Request Service ↗</a>
+      </article>
+    </div>
+    <div class="empty" id="noResults">कोई सेवा नहीं मिली। दूसरा नाम खोजें।</div>
+
+    <div class="notice">
+      <strong>महत्वपूर्ण:</strong> ये लिंक संबंधित पोर्टलों को खोलते हैं।
+      हर सेवा ऑनलाइन उपलब्ध हो, यह जरूरी नहीं है। आवेदन करने से पहले
+      आधिकारिक वेबसाइट, फीस और अंतिम तारीख जरूर जाँचें।
+    </div>
+  </div>
+</section>
+
+<section class="updates" id="updates">
+  <div class="container">
+    <div class="section-head">
+      <h2>Latest Updates & Notices</h2>
+      <p>नौकरी, परीक्षा और सरकारी योजनाओं की जानकारी के लिए आधिकारिक स्रोत।</p>
+    </div>
+    <div class="update-list">
+      <div class="update">
+        <div class="update-icon">📢</div>
+        <div>
+          <h3>सरकारी नौकरी अपडेट</h3>
+          <p>नई भर्ती और आवेदन की जानकारी आधिकारिक पोर्टल पर देखें।</p>
+          <a href="https://www.ncs.gov.in/" target="_blank" rel="noopener">Visit NCS ↗</a>
+        </div>
+      </div>
+      <div class="update">
+        <div class="update-icon">🎓</div>
+        <div>
+          <h3>Scholarship Updates</h3>
+          <p>स्कॉलरशिप आवेदन और नोटिस के लिए सरकारी पोर्टल देखें।</p>
+          <a href="https://scholarships.gov.in/" target="_blank" rel="noopener">Visit Portal ↗</a>
+        </div>
+      </div>
+      <div class="update">
+        <div class="update-icon">🏛️</div>
+        <div>
+          <h3>Bihar Government Notices</h3>
+          <p>बिहार सरकार के विभागों और नई सूचनाओं के लिए।</p>
+          <a href="https://state.bihar.gov.in/" target="_blank" rel="noopener">Visit Bihar Govt ↗</a>
+        </div>
+      </div>
+      <div class="update">
+        <div class="update-icon">📝</div>
+        <div>
+          <h3>Exam Results & Notices</h3>
+          <p>परीक्षा परिणाम की उपलब्धता और तारीख संबंधित बोर्ड पर जाँचें।</p>
+          <a href="https://results.nic.in/" target="_blank" rel="noopener">Visit Results ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="notice">
+      यह पेज अपने-आप लाइव समाचार या भर्ती डेटा प्राप्त नहीं करता।
+      ऊपर दिए गए लिंक आधिकारिक वेबसाइट खोलते हैं। नई सूचना जोड़ने के लिए
+      इस HTML फाइल को अपडेट करना होगा या अलग लाइव डेटा सिस्टम बनाना होगा।
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <h2>About Rabbani Cyber Point</h2>
+      <p>आपकी डिजिटल सेवाओं का साथी</p>
+    </div>
+    <div class="about-box">
+      <h3>हमारा उद्देश्य</h3>
+      <p>
+        Rabbani Cyber Point का उद्देश्य लोगों को ऑनलाइन सेवाओं,
+        सरकारी पोर्टल, नौकरी, परीक्षा, स्कॉलरशिप और डिजिटल कार्यों
+        तक आसानी से पहुँचने में मदद करना है।
+      </p>
+      <p>
+        यह एक स्वतंत्र सेवा वेबसाइट है। यह किसी सरकारी विभाग की
+        आधिकारिक वेबसाइट नहीं है और सरकारी विभाग का प्रतिनिधित्व नहीं करती।
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contact Us</h2>
+      <p>कोई ऑनलाइन काम करवाना है? अपनी रिक्वेस्ट भेजें।</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-panel">
+        <h2>Rabbani Cyber Point</h2>
+        <p>📍 Address: अपना पूरा पता यहाँ लिखें</p>
+        <p>📞 Phone: अपना मोबाइल नंबर जोड़ें</p>
+        <p>🕒 Working Hours: अपना समय यहाँ लिखें</p>
+        <p>किसी सेवा के बारे में पूछने या काम की रिक्वेस्ट भेजने के लिए फॉर्म भरें।</p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <h3>अपनी रिक्वेस्ट भेजें</h3>
+        <label for="customerName">आपका नाम</label>
+        <input id="customerName" required placeholder="अपना नाम लिखें">
+        <label for="customerPhone">मोबाइल नंबर</label>
+        <input id="customerPhone" required inputmode="tel"
+          placeholder="अपना मोबाइल नंबर लिखें">
+        <label for="customerWork">कौन-सा काम करवाना है?</label>
+        <textarea id="customerWork" required
+          placeholder="जैसे PAN Card, Online Form, Print..."></textarea>
+        <button class="btn btn-green" type="submit" style="margin-top:16px;width:100%">
+          WhatsApp पर रिक्वेस्ट भेजें
+        </button>
+        <p style="font-size:12px;color:#64748b;margin-top:10px">
+          फॉर्म भेजने पर WhatsApp खुलेगा। भेजने से पहले संदेश जाँच लें।
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h3>Rabbani Cyber Point</h3>
+  <p>Digital Services • Online Forms • Customer Support</p>
+  <p>© <span id="year"></span> Rabbani Cyber Point. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp" id="whatsappLink" href="#contact">☏ WhatsApp</a>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function searchServices() {
+  const query = document.getElementById("serviceSearch").value
+    .trim().toLowerCase();
+  const cards = document.querySelectorAll("#serviceGrid .service");
+  let visible = 0;
+
+  cards.forEach(card => {
+    const text = (card.innerText + " " + card.dataset.key).toLowerCase();
+    const show = text.includes(query);
+    card.style.display = show ? "" : "none";
+    if (show) visible++;
+  });
+
+  document.getElementById("noResults").style.display =
+    visible === 0 ? "block" : "none";
+}
+
+document.getElementById("serviceSearch")
+  .addEventListener("input", searchServices);
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // अपना 10 अंकों वाला WhatsApp नंबर country code सहित यहाँ डालें।
+  // उदाहरण: 919876543210 (यह केवल उदाहरण है)
+  const whatsappNumber = "91XXXXXXXXXX";
+
+  if (!/^91\d{10}$/.test(whatsappNumber)) {
+    alert("पहले कोड में अपना WhatsApp नंबर डालें। उदाहरण: 919876543210");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const work = document.getElementById("customerWork").value.trim();
+
+  const message =
+    "Namaste Rabbani Cyber Point!%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Phone: " + encodeURIComponent(phone) + "%0A" +
+    "Work: " + encodeURIComponent(work);
+
+  window.open(
+    "https://wa.me/" + whatsappNumber + "?text=" + message,
+    "_blank",
+    "noopener"
+  );
+});
+
+document.getElementById("whatsappLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
 </html>
